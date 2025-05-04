@@ -161,7 +161,7 @@ function renderWishlist() {
         itemElement.innerHTML = `
             <img src="${item.image}" alt="${item.name}" role="button" onclick="openImageModal('${item.id}')" class="item-image" onerror="this.onerror=null;this.src='https://corhexa.com/png/300x200/191919';">
             <div class="item-content">
-                <h3 class="item-name">${item.name}</h3>
+                <h3 class="item-name">${item.name.toUpperCase()}</h3>
                 <h3 class="item-price">${priceFormat(item)}</h3>
                 <a href="${item.link}" target="_blank" class="item-link">${item.link}</a>
                 <div class="item-actions">
