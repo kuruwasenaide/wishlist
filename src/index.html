@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wishlist</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>wishlist</h1>
+            <p class="subtitle">made by: <span class="link-text" onclick="openPortifolioModal()">kuruwasenaide</span></p>
+        </header>
+        
+        <div id="wishlist" class="wishlist"></div>
+
+        <div class="config-container">
+            <h2 class="config-title">config</h2>
+            <form id="configForm">
+                <div class="config-row">
+                    <div class="config-group">
+                        <label for="accentColor">accent color</label>
+                        <input type="color" id="accentColor" class="color-picker" value="rgb(156, 39, 176)">
+                        <label for="configFile">config file</label>
+                        <input type="text" id="configFile" required>
+                    </div>
+    
+                </div>
+                
+                <button type="submit">import</button>
+                <button type="button" id="export">export</button>
+                <button type="button" class="save" id="save">save</button>
+
+            </form>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <img id="modalImage" role="button" onclick="closeModal()" class="modal-image">
+        </div>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <h3 class="modal-title">add</h3>
+            <form id="wishForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="itemName">item name</label>
+                        <input type="text" id="itemName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="itemPrice">item price</label>
+                        <input type="text" id="itemPrice" class="price">
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                        <label for="itemLink">item url</label>
+                        <input type="url" id="itemLink" required>
+                    </div>
+                                    
+                <div class="form-group">
+                    <label for="itemImage">image url (optional)</label>
+                    <input type="url" id="itemImage">
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">cancel</button>
+                    <button type="submit">add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3 class="modal-title">edit</h3>
+            <form id="editForm">
+                <div class="form-row">
+                <input type="hidden" id="editItemId">
+                <div class="form-group">
+                    <label for="editItemName">item name</label>
+                    <input type="text" id="editItemName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editItemPrice">item price</label>
+                    <input type="text" id="editItemPrice" class="price">
+                </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editItemLink">item url</label>
+                    <input type="url" id="editItemLink" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editItemImage">image url (optional)</label>
+                    <input type="url" id="editItemImage">
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">cancel</button>
+                    <button type="submit">save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3 class="modal-title">confirm remove</h3>
+            <p>are you sure you want to remove this item?</p>
+            <input type="hidden" id="deleteItemId">
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="closeModal()">cancel</button>
+                <button type="button" class="btn-danger" onclick="confirmDelete()">remove</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="portifolioModal" class="modal">
+        <div class="modal-content">
+            <h3 class="modal-title">about me</h3>
+            <div class="socials">
+                <a href="https://github.com/kuruwasenaide" target="_blank" class="social-links">
+                    <i class="fab fa-github"></i>
+                    <span>github</span>
+                </a>
+                <a href="https://instagram.com/kauemoreirak" target="_blank" class="social-links">
+                    <i class="fab fa-instagram"></i>
+                    <span>instagram</span>
+                </a>
+                <a href="https://x.com/valentinesexo" target="_blank" class="social-links">
+                    <i class="fab fa-twitter"></i>
+                    <span>twitter</span>
+                </a>
+                <a href="mailto:ykmoreira@gmail.com" target="_blank" class="social-links">
+                    <i class="fas fa-envelope"></i>
+                    <span>email</span>
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
